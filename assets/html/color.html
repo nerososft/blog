@@ -1,0 +1,51 @@
+<html>
+<center>
+<div id="main" class='main' style="width:100%;float:left;">
+
+</div>
+</center>
+
+<style>
+.color_span{
+  width: 20%;height:30px;float:left;/*margin-left: 10px;margin-top: 10px;*/
+}
+.nj{
+  width:100%;height:30px;line-height: 30px;border:none;float:left;margin:0px;padding:0px;color:#fff;
+}
+</style>
+
+</html>
+<script>
+//console.log("1","start");
+var oDiv = document.getElementById('main');
+var num = -1;
+for(var r=0;r<254;r+=45){
+  for(var g=0;g<254;g+=45){
+    for(var b=0;b<254;b+=45){
+      num++;
+      /*
+      if(num%6 == 0){
+        var b_r = document.createElement('br');
+        var b_r2 = document.createElement('br');
+        var b_r3 = document.createElement('br');
+        oDiv.appendChild(b_r);
+        oDiv.appendChild(b_r2);
+        oDiv.appendChild(b_r3);
+      }*/
+      console.log("color:",r+","+g+","+b+"--"+num);
+      var oSpan = document.createElement('span');
+      oSpan.className = "color_span";
+      oSpan.style.background="rgb("+r+","+g+","+b+")";
+      oSpan.id=num;
+      oDiv.appendChild(oSpan);
+      var oJ = document.createElement('p');
+      oJ.id='o'+num;
+      oJ.className = "nj";
+      oJ.innerText="#"+r.toString(16)+g.toString(16)+b.toString(16);
+      //oJ.style.color="rgb("+b+","+g+","+r+")"
+      oDiv.appendChild(oSpan);
+      oSpan.appendChild(oJ);
+    }
+  }
+}
+</script>
